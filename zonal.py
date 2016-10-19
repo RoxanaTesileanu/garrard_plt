@@ -258,4 +258,43 @@ array([62, 66, 66, 35, 43, 62, 64, 65, 26, 39, 49, 48, 49, 30, 38, 50, 53,
        55, 48, 34, 33, 53, 53, 57, 28, 30, 54, 58, 57, 44, 42, 37, 26, 30,
        25, 35, 29, 37, 29, 31, 26, 28, 37, 37, 27, 43, 29, 27, 26])
 >>> # I don't know what bn is...
+>>> # ok, bn is binnumber - the bin in which an observation falls.
+>>> import rpy
+
+Traceback (most recent call last):
+  File "<pyshell#56>", line 1, in <module>
+    import rpy
+ImportError: No module named rpy
+>>> import rpy
+
+Traceback (most recent call last):
+  File "<pyshell#57>", line 1, in <module>
+    import rpy
+ImportError: No module named rpy
+>>> import rpy
+
+Traceback (most recent call last):
+  File "<pyshell#58>", line 1, in <module>
+    import rpy
+ImportError: No module named rpy
+>>> import rpy2
+
+Traceback (most recent call last):
+  File "<pyshell#59>", line 1, in <module>
+    import rpy2
+ImportError: No module named rpy2
+>>> import rpy2
+>>> print (r-y2._version_)
+
+Traceback (most recent call last):
+  File "<pyshell#61>", line 1, in <module>
+    print (r-y2._version_)
+NameError: name 'r' is not defined
+>>> print (rpy2._version_)
+
+Traceback (most recent call last):
+  File "<pyshell#62>", line 1, in <module>
+    print (rpy2._version_)
+AttributeError: 'module' object has no attribute '_version_'
+>>> import rpy2.robjects as robjects
 >>> 
