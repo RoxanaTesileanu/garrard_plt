@@ -297,4 +297,386 @@ Traceback (most recent call last):
     print (rpy2._version_)
 AttributeError: 'module' object has no attribute '_version_'
 >>> import rpy2.robjects as robjects
+>>> from rpy2.robjects import r
+>>> x= np.range(1,30)
+
+Traceback (most recent call last):
+  File "<pyshell#65>", line 1, in <module>
+    x= np.range(1,30)
+AttributeError: 'module' object has no attribute 'range'
+>>> x= np.arange(1,30)
+>>> y=np.arange(3,33)
+>>> len(x)
+29
+>>> len(y)
+30
+>>> y=np.arange(3,32)
+>>> r.plot(x,y)
+
+Traceback (most recent call last):
+  File "<pyshell#71>", line 1, in <module>
+    r.plot(x,y)
+  File "/usr/local/lib/python2.7/dist-packages/rpy2/robjects/functions.py", line 178, in __call__
+    return super(SignatureTranslatedFunction, self).__call__(*args, **kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/rpy2/robjects/functions.py", line 102, in __call__
+    new_args = [conversion.py2ri(a) for a in args]
+  File "/usr/local/lib/python2.7/dist-packages/singledispatch.py", line 210, in wrapper
+    return dispatch(args[0].__class__)(*args, **kw)
+  File "/usr/local/lib/python2.7/dist-packages/rpy2/robjects/conversion.py", line 60, in _py2ri
+    raise NotImplementedError("Conversion 'py2ri' not defined for objects of type '%s'" % str(type(obj)))
+NotImplementedError: Conversion 'py2ri' not defined for objects of type '<type 'numpy.ndarray'>'
+>>> pplot=r.plot(x,y)
+
+Traceback (most recent call last):
+  File "<pyshell#72>", line 1, in <module>
+    pplot=r.plot(x,y)
+  File "/usr/local/lib/python2.7/dist-packages/rpy2/robjects/functions.py", line 178, in __call__
+    return super(SignatureTranslatedFunction, self).__call__(*args, **kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/rpy2/robjects/functions.py", line 102, in __call__
+    new_args = [conversion.py2ri(a) for a in args]
+  File "/usr/local/lib/python2.7/dist-packages/singledispatch.py", line 210, in wrapper
+    return dispatch(args[0].__class__)(*args, **kw)
+  File "/usr/local/lib/python2.7/dist-packages/rpy2/robjects/conversion.py", line 60, in _py2ri
+    raise NotImplementedError("Conversion 'py2ri' not defined for objects of type '%s'" % str(type(obj)))
+NotImplementedError: Conversion 'py2ri' not defined for objects of type '<type 'numpy.ndarray'>'
+>>> plot=r.plot(x,y)
+
+Traceback (most recent call last):
+  File "<pyshell#73>", line 1, in <module>
+    plot=r.plot(x,y)
+  File "/usr/local/lib/python2.7/dist-packages/rpy2/robjects/functions.py", line 178, in __call__
+    return super(SignatureTranslatedFunction, self).__call__(*args, **kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/rpy2/robjects/functions.py", line 102, in __call__
+    new_args = [conversion.py2ri(a) for a in args]
+  File "/usr/local/lib/python2.7/dist-packages/singledispatch.py", line 210, in wrapper
+    return dispatch(args[0].__class__)(*args, **kw)
+  File "/usr/local/lib/python2.7/dist-packages/rpy2/robjects/conversion.py", line 60, in _py2ri
+    raise NotImplementedError("Conversion 'py2ri' not defined for objects of type '%s'" % str(type(obj)))
+NotImplementedError: Conversion 'py2ri' not defined for objects of type '<type 'numpy.ndarray'>'
+>>> rprint(r.plot(x,y))
+
+Traceback (most recent call last):
+  File "<pyshell#74>", line 1, in <module>
+    rprint(r.plot(x,y))
+NameError: name 'rprint' is not defined
+>>> from rpy2.robjects.packages import importr
+>>> base = importr('base')
+
+>>> utils = importr('utils')
+>>> plot=r.plot(x,y)
+
+Traceback (most recent call last):
+  File "<pyshell#78>", line 1, in <module>
+    plot=r.plot(x,y)
+  File "/usr/local/lib/python2.7/dist-packages/rpy2/robjects/functions.py", line 178, in __call__
+    return super(SignatureTranslatedFunction, self).__call__(*args, **kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/rpy2/robjects/functions.py", line 102, in __call__
+    new_args = [conversion.py2ri(a) for a in args]
+  File "/usr/local/lib/python2.7/dist-packages/singledispatch.py", line 210, in wrapper
+    return dispatch(args[0].__class__)(*args, **kw)
+  File "/usr/local/lib/python2.7/dist-packages/rpy2/robjects/conversion.py", line 60, in _py2ri
+    raise NotImplementedError("Conversion 'py2ri' not defined for objects of type '%s'" % str(type(obj)))
+NotImplementedError: Conversion 'py2ri' not defined for objects of type '<type 'numpy.ndarray'>'
+>>> plot(x,y)
+
+Traceback (most recent call last):
+  File "<pyshell#79>", line 1, in <module>
+    plot(x,y)
+NameError: name 'plot' is not defined
+>>> stats    = importr('stats')
+>>> graphics = importr('graphics')
+>>> graphics.plot(x,y)
+
+Traceback (most recent call last):
+  File "<pyshell#82>", line 1, in <module>
+    graphics.plot(x,y)
+  File "/usr/local/lib/python2.7/dist-packages/rpy2/robjects/functions.py", line 178, in __call__
+    return super(SignatureTranslatedFunction, self).__call__(*args, **kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/rpy2/robjects/functions.py", line 102, in __call__
+    new_args = [conversion.py2ri(a) for a in args]
+  File "/usr/local/lib/python2.7/dist-packages/singledispatch.py", line 210, in wrapper
+    return dispatch(args[0].__class__)(*args, **kw)
+  File "/usr/local/lib/python2.7/dist-packages/rpy2/robjects/conversion.py", line 60, in _py2ri
+    raise NotImplementedError("Conversion 'py2ri' not defined for objects of type '%s'" % str(type(obj)))
+NotImplementedError: Conversion 'py2ri' not defined for objects of type '<type 'numpy.ndarray'>'
+>>> stats.plot(x,y)
+
+Traceback (most recent call last):
+  File "<pyshell#83>", line 1, in <module>
+    stats.plot(x,y)
+AttributeError: 'InstalledSTPackage' object has no attribute 'plot'
+>>> grdevices = importr('grDevices')
+>>> grdevices.png(file="rpyplot.png", width=512, height=512)
+rpy2.rinterface.NULL
+>>> stats.plot(x,y)
+
+Traceback (most recent call last):
+  File "<pyshell#86>", line 1, in <module>
+    stats.plot(x,y)
+AttributeError: 'InstalledSTPackage' object has no attribute 'plot'
+>>> graphics.plot(x,y)
+
+Traceback (most recent call last):
+  File "<pyshell#87>", line 1, in <module>
+    graphics.plot(x,y)
+  File "/usr/local/lib/python2.7/dist-packages/rpy2/robjects/functions.py", line 178, in __call__
+    return super(SignatureTranslatedFunction, self).__call__(*args, **kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/rpy2/robjects/functions.py", line 102, in __call__
+    new_args = [conversion.py2ri(a) for a in args]
+  File "/usr/local/lib/python2.7/dist-packages/singledispatch.py", line 210, in wrapper
+    return dispatch(args[0].__class__)(*args, **kw)
+  File "/usr/local/lib/python2.7/dist-packages/rpy2/robjects/conversion.py", line 60, in _py2ri
+    raise NotImplementedError("Conversion 'py2ri' not defined for objects of type '%s'" % str(type(obj)))
+NotImplementedError: Conversion 'py2ri' not defined for objects of type '<type 'numpy.ndarray'>'
+>>> plot(x,y)
+
+Traceback (most recent call last):
+  File "<pyshell#88>", line 1, in <module>
+    plot(x,y)
+NameError: name 'plot' is not defined
+>>> grdevices.dev_off()
+R object with classes: ('integer',) mapped to:
+<IntVector - Python:0x7f1bf18e1cb0 / R:0x60f7758>
+[       1]
+>>> grdevices.png(file="rpyplot.png", width=512, height=512)
+rpy2.rinterface.NULL
+>>> graphics.plot(x,y)
+
+Traceback (most recent call last):
+  File "<pyshell#91>", line 1, in <module>
+    graphics.plot(x,y)
+  File "/usr/local/lib/python2.7/dist-packages/rpy2/robjects/functions.py", line 178, in __call__
+    return super(SignatureTranslatedFunction, self).__call__(*args, **kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/rpy2/robjects/functions.py", line 102, in __call__
+    new_args = [conversion.py2ri(a) for a in args]
+  File "/usr/local/lib/python2.7/dist-packages/singledispatch.py", line 210, in wrapper
+    return dispatch(args[0].__class__)(*args, **kw)
+  File "/usr/local/lib/python2.7/dist-packages/rpy2/robjects/conversion.py", line 60, in _py2ri
+    raise NotImplementedError("Conversion 'py2ri' not defined for objects of type '%s'" % str(type(obj)))
+NotImplementedError: Conversion 'py2ri' not defined for objects of type '<type 'numpy.ndarray'>'
+>>> grdevices.dev_off()
+R object with classes: ('integer',) mapped to:
+<IntVector - Python:0x7f1bf190f518 / R:0x60f9198>
+[       1]
+>>> graphics = importr('graphics')
+>>> r.plot(x,y)
+
+Traceback (most recent call last):
+  File "<pyshell#94>", line 1, in <module>
+    r.plot(x,y)
+  File "/usr/local/lib/python2.7/dist-packages/rpy2/robjects/functions.py", line 178, in __call__
+    return super(SignatureTranslatedFunction, self).__call__(*args, **kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/rpy2/robjects/functions.py", line 102, in __call__
+    new_args = [conversion.py2ri(a) for a in args]
+  File "/usr/local/lib/python2.7/dist-packages/singledispatch.py", line 210, in wrapper
+    return dispatch(args[0].__class__)(*args, **kw)
+  File "/usr/local/lib/python2.7/dist-packages/rpy2/robjects/conversion.py", line 60, in _py2ri
+    raise NotImplementedError("Conversion 'py2ri' not defined for objects of type '%s'" % str(type(obj)))
+NotImplementedError: Conversion 'py2ri' not defined for objects of type '<type 'numpy.ndarray'>'
+>>> graphics.plot(x,y)
+
+Traceback (most recent call last):
+  File "<pyshell#95>", line 1, in <module>
+    graphics.plot(x,y)
+  File "/usr/local/lib/python2.7/dist-packages/rpy2/robjects/functions.py", line 178, in __call__
+    return super(SignatureTranslatedFunction, self).__call__(*args, **kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/rpy2/robjects/functions.py", line 102, in __call__
+    new_args = [conversion.py2ri(a) for a in args]
+  File "/usr/local/lib/python2.7/dist-packages/singledispatch.py", line 210, in wrapper
+    return dispatch(args[0].__class__)(*args, **kw)
+  File "/usr/local/lib/python2.7/dist-packages/rpy2/robjects/conversion.py", line 60, in _py2ri
+    raise NotImplementedError("Conversion 'py2ri' not defined for objects of type '%s'" % str(type(obj)))
+NotImplementedError: Conversion 'py2ri' not defined for objects of type '<type 'numpy.ndarray'>'
+>>> graphics.plot('x','y')
+
+Warning (from warnings module):
+  File "/usr/local/lib/python2.7/dist-packages/rpy2/rinterface/__init__.py", line 185
+    warnings.warn(x, RRuntimeWarning)
+RRuntimeWarning: Error in plot.window(...) : need finite 'xlim' values
+
+
+Warning (from warnings module):
+  File "/usr/local/lib/python2.7/dist-packages/rpy2/rinterface/__init__.py", line 185
+    warnings.warn(x, RRuntimeWarning)
+RRuntimeWarning: In addition: 
+
+Warning (from warnings module):
+  File "/usr/local/lib/python2.7/dist-packages/rpy2/rinterface/__init__.py", line 185
+    warnings.warn(x, RRuntimeWarning)
+RRuntimeWarning: Warning messages:
+
+
+Warning (from warnings module):
+  File "/usr/local/lib/python2.7/dist-packages/rpy2/rinterface/__init__.py", line 185
+    warnings.warn(x, RRuntimeWarning)
+RRuntimeWarning: 1: 
+
+Warning (from warnings module):
+  File "/usr/local/lib/python2.7/dist-packages/rpy2/rinterface/__init__.py", line 185
+    warnings.warn(x, RRuntimeWarning)
+RRuntimeWarning: In xy.coords(x, y, xlabel, ylabel, log) :
+
+Warning (from warnings module):
+  File "/usr/local/lib/python2.7/dist-packages/rpy2/rinterface/__init__.py", line 185
+    warnings.warn(x, RRuntimeWarning)
+RRuntimeWarning:  NAs introduced by coercion
+
+
+Warning (from warnings module):
+  File "/usr/local/lib/python2.7/dist-packages/rpy2/rinterface/__init__.py", line 185
+    warnings.warn(x, RRuntimeWarning)
+RRuntimeWarning: 2: 
+
+Warning (from warnings module):
+  File "/usr/local/lib/python2.7/dist-packages/rpy2/rinterface/__init__.py", line 185
+    warnings.warn(x, RRuntimeWarning)
+RRuntimeWarning: 3: 
+
+Warning (from warnings module):
+  File "/usr/local/lib/python2.7/dist-packages/rpy2/rinterface/__init__.py", line 185
+    warnings.warn(x, RRuntimeWarning)
+RRuntimeWarning: In min(x) :
+
+Warning (from warnings module):
+  File "/usr/local/lib/python2.7/dist-packages/rpy2/rinterface/__init__.py", line 185
+    warnings.warn(x, RRuntimeWarning)
+RRuntimeWarning:  no non-missing arguments to min; returning Inf
+
+
+Warning (from warnings module):
+  File "/usr/local/lib/python2.7/dist-packages/rpy2/rinterface/__init__.py", line 185
+    warnings.warn(x, RRuntimeWarning)
+RRuntimeWarning: 4: 
+
+Warning (from warnings module):
+  File "/usr/local/lib/python2.7/dist-packages/rpy2/rinterface/__init__.py", line 185
+    warnings.warn(x, RRuntimeWarning)
+RRuntimeWarning: In max(x) :
+
+Warning (from warnings module):
+  File "/usr/local/lib/python2.7/dist-packages/rpy2/rinterface/__init__.py", line 185
+    warnings.warn(x, RRuntimeWarning)
+RRuntimeWarning:  no non-missing arguments to max; returning -Inf
+
+
+Warning (from warnings module):
+  File "/usr/local/lib/python2.7/dist-packages/rpy2/rinterface/__init__.py", line 185
+    warnings.warn(x, RRuntimeWarning)
+RRuntimeWarning: 5: 
+
+Warning (from warnings module):
+  File "/usr/local/lib/python2.7/dist-packages/rpy2/rinterface/__init__.py", line 185
+    warnings.warn(x, RRuntimeWarning)
+RRuntimeWarning: 6: 
+
+Traceback (most recent call last):
+  File "<pyshell#96>", line 1, in <module>
+    graphics.plot('x','y')
+  File "/usr/local/lib/python2.7/dist-packages/rpy2/robjects/functions.py", line 178, in __call__
+    return super(SignatureTranslatedFunction, self).__call__(*args, **kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/rpy2/robjects/functions.py", line 106, in __call__
+    res = super(Function, self).__call__(*new_args, **new_kwargs)
+RRuntimeError: Error in plot.window(...) : need finite 'xlim' values
+
+>>> graphics.plot(x,y)
+
+Traceback (most recent call last):
+  File "<pyshell#97>", line 1, in <module>
+    graphics.plot(x,y)
+  File "/usr/local/lib/python2.7/dist-packages/rpy2/robjects/functions.py", line 178, in __call__
+    return super(SignatureTranslatedFunction, self).__call__(*args, **kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/rpy2/robjects/functions.py", line 102, in __call__
+    new_args = [conversion.py2ri(a) for a in args]
+  File "/usr/local/lib/python2.7/dist-packages/singledispatch.py", line 210, in wrapper
+    return dispatch(args[0].__class__)(*args, **kw)
+  File "/usr/local/lib/python2.7/dist-packages/rpy2/robjects/conversion.py", line 60, in _py2ri
+    raise NotImplementedError("Conversion 'py2ri' not defined for objects of type '%s'" % str(type(obj)))
+NotImplementedError: Conversion 'py2ri' not defined for objects of type '<type 'numpy.ndarray'>'
+>>> graphics.plot('x'=x,'y'=y)
+SyntaxError: keyword can't be an expression
+>>> grdevices.dev_off()
+R object with classes: ('integer',) mapped to:
+<IntVector - Python:0x7f1bf18e1bd8 / R:0x646e968>
+[       1]
+>>> grdevices.png(file="rpyplot.png", width=512, height=512)
+rpy2.rinterface.NULL
+>>> graphics.plot(x,y)
+
+Traceback (most recent call last):
+  File "<pyshell#101>", line 1, in <module>
+    graphics.plot(x,y)
+  File "/usr/local/lib/python2.7/dist-packages/rpy2/robjects/functions.py", line 178, in __call__
+    return super(SignatureTranslatedFunction, self).__call__(*args, **kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/rpy2/robjects/functions.py", line 102, in __call__
+    new_args = [conversion.py2ri(a) for a in args]
+  File "/usr/local/lib/python2.7/dist-packages/singledispatch.py", line 210, in wrapper
+    return dispatch(args[0].__class__)(*args, **kw)
+  File "/usr/local/lib/python2.7/dist-packages/rpy2/robjects/conversion.py", line 60, in _py2ri
+    raise NotImplementedError("Conversion 'py2ri' not defined for objects of type '%s'" % str(type(obj)))
+NotImplementedError: Conversion 'py2ri' not defined for objects of type '<type 'numpy.ndarray'>'
+>>> graphics.plot('x,y')
+
+Warning (from warnings module):
+  File "/usr/local/lib/python2.7/dist-packages/rpy2/rinterface/__init__.py", line 185
+    warnings.warn(x, RRuntimeWarning)
+RRuntimeWarning: Error in plot.window(...) : need finite 'ylim' values
+
+
+Traceback (most recent call last):
+  File "<pyshell#102>", line 1, in <module>
+    graphics.plot('x,y')
+  File "/usr/local/lib/python2.7/dist-packages/rpy2/robjects/functions.py", line 178, in __call__
+    return super(SignatureTranslatedFunction, self).__call__(*args, **kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/rpy2/robjects/functions.py", line 106, in __call__
+    res = super(Function, self).__call__(*new_args, **new_kwargs)
+RRuntimeError: Error in plot.window(...) : need finite 'ylim' values
+
+>>> graphics.plot([0,1,2,3], [0,1,2,3])
+rpy2.rinterface.NULL
+>>> grdevices.dev_off()
+R object with classes: ('integer',) mapped to:
+<IntVector - Python:0x7f1bf1907098 / R:0x65e2588>
+[       1]
+>>> grdevices.png(file="rpyplot2.png", width=512, height=512)
+rpy2.rinterface.NULL
+>>> x= np.arange(1,30)
+>>> y=np.arange(3,32)
+>>> graphics.plot(x,y)
+
+Traceback (most recent call last):
+  File "<pyshell#108>", line 1, in <module>
+    graphics.plot(x,y)
+  File "/usr/local/lib/python2.7/dist-packages/rpy2/robjects/functions.py", line 178, in __call__
+    return super(SignatureTranslatedFunction, self).__call__(*args, **kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/rpy2/robjects/functions.py", line 102, in __call__
+    new_args = [conversion.py2ri(a) for a in args]
+  File "/usr/local/lib/python2.7/dist-packages/singledispatch.py", line 210, in wrapper
+    return dispatch(args[0].__class__)(*args, **kw)
+  File "/usr/local/lib/python2.7/dist-packages/rpy2/robjects/conversion.py", line 60, in _py2ri
+    raise NotImplementedError("Conversion 'py2ri' not defined for objects of type '%s'" % str(type(obj)))
+NotImplementedError: Conversion 'py2ri' not defined for objects of type '<type 'numpy.ndarray'>'
+>>> grdevices.dev_off()
+R object with classes: ('integer',) mapped to:
+<IntVector - Python:0x7f1bf195f1b8 / R:0x65e89b8>
+[       1]
+>>> grdevices.png(file="rpyplot2.png", width=512, height=512)
+rpy2.rinterface.NULL
+>>> graphics.plot(np.arange(1,30), np.arange(3,32))
+
+Traceback (most recent call last):
+  File "<pyshell#111>", line 1, in <module>
+    graphics.plot(np.arange(1,30), np.arange(3,32))
+  File "/usr/local/lib/python2.7/dist-packages/rpy2/robjects/functions.py", line 178, in __call__
+    return super(SignatureTranslatedFunction, self).__call__(*args, **kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/rpy2/robjects/functions.py", line 102, in __call__
+    new_args = [conversion.py2ri(a) for a in args]
+  File "/usr/local/lib/python2.7/dist-packages/singledispatch.py", line 210, in wrapper
+    return dispatch(args[0].__class__)(*args, **kw)
+  File "/usr/local/lib/python2.7/dist-packages/rpy2/robjects/conversion.py", line 60, in _py2ri
+    raise NotImplementedError("Conversion 'py2ri' not defined for objects of type '%s'" % str(type(obj)))
+NotImplementedError: Conversion 'py2ri' not defined for objects of type '<type 'numpy.ndarray'>'
+>>> x
+array([ 1,  2,  3,  4,  5,  6,  7,  8,  9, 10, 11, 12, 13, 14, 15, 16, 17,
+       18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29])
+>>> # so I guess it doesn't work with ndarrays...isn't that weird?
 >>> 
