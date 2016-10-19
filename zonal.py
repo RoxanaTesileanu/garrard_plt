@@ -225,4 +225,37 @@ array([[ 0.,  5.,  4.,  3.,  5.,  3.,  3.,  2.,  2.,  1.,  2.,  5.,  0.,
          6.,  1.,  3.,  1.,  1.,  3.,  3.,  2.],
        [ 3.,  3.,  3.,  1.,  4.,  1.,  3.,  3.,  1.,  0.,  5.,  1.,  1.,
          3.,  0.,  3.,  0.,  2.,  2.,  2.,  4.]])
->>> # two lists: one for the false values and 
+>>> # two lists: one for the false values and one for the true values
+>>> # each list contains the counts for each value from 0 to 20
+>>> col_bins
+array([ 0.,  1.,  2.])
+>>> arr3_bins
+array([  0.,   1.,   2.,   3.,   4.,   5.,   6.,   7.,   8.,   9.,  10.,
+        11.,  12.,  13.,  14.,  15.,  16.,  17.,  18.,  19.,  20.,  21.])
+>>> # the histogram rows correspond to the bins from the first array that was passed in (two rows:false and true), and the columns correspond to the second array (arr3).
+>>> 
+>>> #########
+>>> # using SciPy, you can get a histogram with the function called stats.binned_statistic_2d:
+>>> import scipy.stats
+>>> hist2, col_bins2, arr3_bins2, bn = scipy.stats.binned_statistic_2d(
+	col_arr.flatten(), arr3.flatten(),col_arr.flatten(), 'count', [get_bins(col_arr), get_bins(arr3)])
+>>> hits2
+
+Traceback (most recent call last):
+  File "<pyshell#51>", line 1, in <module>
+    hits2
+NameError: name 'hits2' is not defined
+>>> hist2
+array([[ 0.,  5.,  4.,  3.,  5.,  3.,  3.,  2.,  2.,  1.,  2.,  5.,  0.,
+         6.,  1.,  3.,  1.,  1.,  3.,  3.,  2.],
+       [ 3.,  3.,  3.,  1.,  4.,  1.,  3.,  3.,  1.,  0.,  5.,  1.,  1.,
+         3.,  0.,  3.,  0.,  2.,  2.,  2.,  4.]])
+>>> bn
+array([62, 66, 66, 35, 43, 62, 64, 65, 26, 39, 49, 48, 49, 30, 38, 50, 53,
+       54, 34, 32, 67, 47, 51, 37, 35, 67, 64, 51, 41, 25, 40, 28, 25, 27,
+       25, 42, 43, 57, 49, 60, 31, 32, 57, 60, 67, 37, 28, 52, 59, 48, 35,
+       25, 54, 60, 51, 42, 39, 57, 51, 65, 39, 44, 62, 67, 47, 35, 28, 47,
+       55, 48, 34, 33, 53, 53, 57, 28, 30, 54, 58, 57, 44, 42, 37, 26, 30,
+       25, 35, 29, 37, 29, 31, 26, 28, 37, 37, 27, 43, 29, 27, 26])
+>>> # I don't know what bn is...
+>>> 
