@@ -679,4 +679,78 @@ NotImplementedError: Conversion 'py2ri' not defined for objects of type '<type '
 array([ 1,  2,  3,  4,  5,  6,  7,  8,  9, 10, 11, 12, 13, 14, 15, 16, 17,
        18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29])
 >>> # so I guess it doesn't work with ndarrays...isn't that weird?
+>>> import rpy2.rinterface
+>>> grdevices.png(file="rpyplot2.png", width=512, height=512)
+rpy2.rinterface.NULL
+>>> graphics.plot(np.arange(1,30), np.arange(3,32))
+
+Traceback (most recent call last):
+  File "<pyshell#116>", line 1, in <module>
+    graphics.plot(np.arange(1,30), np.arange(3,32))
+  File "/usr/local/lib/python2.7/dist-packages/rpy2/robjects/functions.py", line 178, in __call__
+    return super(SignatureTranslatedFunction, self).__call__(*args, **kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/rpy2/robjects/functions.py", line 102, in __call__
+    new_args = [conversion.py2ri(a) for a in args]
+  File "/usr/local/lib/python2.7/dist-packages/singledispatch.py", line 210, in wrapper
+    return dispatch(args[0].__class__)(*args, **kw)
+  File "/usr/local/lib/python2.7/dist-packages/rpy2/robjects/conversion.py", line 60, in _py2ri
+    raise NotImplementedError("Conversion 'py2ri' not defined for objects of type '%s'" % str(type(obj)))
+NotImplementedError: Conversion 'py2ri' not defined for objects of type '<type 'numpy.ndarray'>'
+>>> import rpy2.robjects.numpt2ri
+
+Traceback (most recent call last):
+  File "<pyshell#117>", line 1, in <module>
+    import rpy2.robjects.numpt2ri
+ImportError: No module named numpt2ri
+>>> import rpy2.robjects.numpy2ri
+>>> grdevices.png(file="rpyplot2.png", width=512, height=512)
+rpy2.rinterface.NULL
+>>> graphics.plot(np.arange(1,30), np.arange(3,32))
+
+Traceback (most recent call last):
+  File "<pyshell#120>", line 1, in <module>
+    graphics.plot(np.arange(1,30), np.arange(3,32))
+  File "/usr/local/lib/python2.7/dist-packages/rpy2/robjects/functions.py", line 178, in __call__
+    return super(SignatureTranslatedFunction, self).__call__(*args, **kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/rpy2/robjects/functions.py", line 102, in __call__
+    new_args = [conversion.py2ri(a) for a in args]
+  File "/usr/local/lib/python2.7/dist-packages/singledispatch.py", line 210, in wrapper
+    return dispatch(args[0].__class__)(*args, **kw)
+  File "/usr/local/lib/python2.7/dist-packages/rpy2/robjects/conversion.py", line 60, in _py2ri
+    raise NotImplementedError("Conversion 'py2ri' not defined for objects of type '%s'" % str(type(obj)))
+NotImplementedError: Conversion 'py2ri' not defined for objects of type '<type 'numpy.ndarray'>'
+>>> grdevices.dev_off()
+R object with classes: ('integer',) mapped to:
+<IntVector - Python:0x7f1bf1950908 / R:0x68a6998>
+[       2]
+>>> grdevices.png(file="rpyplot2.png", width=512, height=512)
+rpy2.rinterface.NULL
+>>> graphics.plot(x,y)
+
+Traceback (most recent call last):
+  File "<pyshell#123>", line 1, in <module>
+    graphics.plot(x,y)
+  File "/usr/local/lib/python2.7/dist-packages/rpy2/robjects/functions.py", line 178, in __call__
+    return super(SignatureTranslatedFunction, self).__call__(*args, **kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/rpy2/robjects/functions.py", line 102, in __call__
+    new_args = [conversion.py2ri(a) for a in args]
+  File "/usr/local/lib/python2.7/dist-packages/singledispatch.py", line 210, in wrapper
+    return dispatch(args[0].__class__)(*args, **kw)
+  File "/usr/local/lib/python2.7/dist-packages/rpy2/robjects/conversion.py", line 60, in _py2ri
+    raise NotImplementedError("Conversion 'py2ri' not defined for objects of type '%s'" % str(type(obj)))
+NotImplementedError: Conversion 'py2ri' not defined for objects of type '<type 'numpy.ndarray'>'
+>>> from rpy2.robjects import numpy2ri
+>>> numpy2ri.activate()
+>>> grdevices.png(file="rpyplot2.png", width=512, height=512)
+rpy2.rinterface.NULL
+>>> graphics.plot(x,y)
+rpy2.rinterface.NULL
+>>> grdevices.dev_off()
+R object with classes: ('integer',) mapped to:
+<IntVector - Python:0x7f1bf1907fc8 / R:0x6a02ed8>
+[       2]
+>>> # yes! I've made it!!! The conversion worked!
+>>> # similarly you can use pandas2ri and pandas2ri.activate() to use pandas data frames!!
+>>> # from rpy2.robjects import pandas2ri
+>>> # pandas2ri.activate()
 >>> 
